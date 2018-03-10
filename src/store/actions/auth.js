@@ -31,9 +31,9 @@ export const auth = (email, password, isSignup) => { //handles create account an
 			password: password,
 			returnSecureToken: true
 		};
-		let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=//"key"'
+		let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyDhyfqr76w1W4Xy3wQbyMYH86Hd0f48vMQ'
 		if (!isSignup) { //if we are login in
-			url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=//"key"'
+			url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyDhyfqr76w1W4Xy3wQbyMYH86Hd0f48vMQ'
 		}
 		axios.post(url, authData)
 		.then(response => {
@@ -89,7 +89,7 @@ export const authCheckState = () => {
 				dispatch(logout());
 			} else { //this will trigger an auto authentication by dispatching authSuccess
 				const userID = localStorage.getItem('userID')
-			dispatch(authSuccess(token, userID));
+				dispatch(authSuccess(token, userID));
 			//this will set an auto logout after we have passed our expiration date
 			dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000))
 		}

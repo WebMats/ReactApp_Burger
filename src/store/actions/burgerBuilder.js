@@ -31,7 +31,7 @@ export const fetchIngredientsFailed = () => {
 
 export const initIngredients = () => { //this asyncronoous function will fetch our ingredients from the web and pass them onto setIngredients
 	return dispatch => {
-		axios.get('//path')
+		axios.get('https://my-react-burger-app-250fe.firebaseio.com/ingredients.json')
 		.then(response => {
 			dispatch(setIngredients(response.data));
 		}).catch (error => {

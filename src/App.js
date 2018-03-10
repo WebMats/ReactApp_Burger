@@ -27,13 +27,15 @@ const asyncAuth = asyncComponent(() => { //Lazy loading for /auth
 class App extends Component {
 
 componentDidMount() { 
-  this.props.onTryAutoSignup(); // on app mount the we will try to authenticate through firebase
+ this.props.onTryAutoSignup(); // on app mount the we will try to authenticate through firebase
 }
 
   render() {
+    const ordersRoute = localStorage.token !== undefined ? <Route path="/orders" component={asyncOrders} /> : null;
 let routes = (
     <Switch>
       <Route path="/" exact component={BurgerBuilder} />
+      {ordersRoute}
       <Route path="/auth" exact component={asyncAuth} />
       <Redirect to="/" />
     </Switch>

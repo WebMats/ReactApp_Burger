@@ -21,7 +21,6 @@ const purchaseBurgerSuccess = (state, action) => { // adds order placed to the o
 }
 
 const fethOrdersSuccess = (state, action) => { //GETs orders from firebase for the user that is authorized, when authorization is valid
-	console.log(action)
 	return updateObject(state,{
 		orders: action.orders, 
 		loading: false
